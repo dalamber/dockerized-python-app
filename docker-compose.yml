@@ -1,0 +1,12 @@
+services:
+  badsantos-com:
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/sh -c 'python src/main.py'
+    restart: always
+

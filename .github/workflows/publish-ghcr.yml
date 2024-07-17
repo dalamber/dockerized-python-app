@@ -1,0 +1,26 @@
+name: Publish to GHCR
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+env:
+  REPO_OWNER: ${{ github.repository_owner }}
+  GHCR_LOGIN: ${{ github.repository_owner }}
+  GHCR_PASSW: ${{ secrets.GH_PAT }}
+  GHCR_IMAGE: ghcr.io/${{ github.repository_owner }}/dockerized-python-app-template-ghcr:latest
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Build and push the image
+        run: |
+          docker login --username $GHCR_LOGIN --password $GHCR_PASSW ghcr.io
+          docker build . --tag $GHCR_IMAGE
+          docker push $GHCR_IMAGE
