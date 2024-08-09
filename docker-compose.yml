@@ -1,12 +1,20 @@
 services:
-  badsantos-com:
-    env_file:
-      - .env
-    ports:
-      - "80:80"
+  python-app-template:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
     command: /bin/sh -c 'python src/main.py'
     restart: always
 
+  python-app-template-prebuilt:
+    image: ghcr.io/dalamber/dockerized-python-app-template-ghcr:latest
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    command: /bin/sh -c 'python src/main.py'
+    restart: always

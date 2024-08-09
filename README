@@ -1,0 +1,49 @@
+# Dockerized Python App Template
+
+This project provides a template for a Dockerized Python application. You can either build the image locally or pull a pre-built image from the GitHub Container Registry.
+
+## Getting Started
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Clone the Repository
+
+```sh
+git clone https://github.com/yourusername/dockerized-python-app-template.git
+cd dockerized-python-app-template
+```
+
+### Fill the .env File
+
+Create a .env file in the root directory of the project and fill it with the necessary environment variables. Here is an example:
+
+```# .env
+ENV_VAR1=value1
+ENV_VAR2=value2
+```
+
+### Running the App
+
+#### Build and Run Locally
+
+To build the image locally and run the app, use the following command:
+
+```docker-compose up python-app-template```
+
+#### Pull and Run Pre-built Image
+
+To pull the pre-built image from the GitHub Container Registry and run the app, use the following command:
+
+```docker-compose up python-app-template-prebuilt```
+
+### Stopping the App
+
+To stop the app, press Ctrl+C in the terminal where the app is running, or use the following command in another terminal:
+```docker-compose down```
+
+## License
+
+This project is licensed under the Apache License - see the LICENSE file for details.
